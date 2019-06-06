@@ -30,6 +30,7 @@ def decode(digits, base):
         if digit.isdigit():
             digit_to_add = int(digit)
         else:
+            #  ord() covert string to single digit unicode number
             digit_to_add = ord(digit) - 97 + 10
         result += digit_to_add
         if index is not len(digits) - 1:
