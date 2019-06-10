@@ -44,6 +44,9 @@ def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
+    """
+        Iterative Binary search function -> O(logn) runtime
+    """
     lower = 0
     upper = len(array)
     while lower < upper:
@@ -64,6 +67,9 @@ def binary_search_recursive(array, item, left=None, right=None):
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
      # Base case for exiting recusive function
+     """
+        Recursive Binary search function -> O(logn) runtime
+    """
 
     if left is None and right is None:
         left = 0
