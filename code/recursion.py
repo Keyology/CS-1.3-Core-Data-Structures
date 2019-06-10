@@ -44,6 +44,6 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    print(factorial_recursive(10))
-    print(factorial_iterative(10))
+    main()
+    # print(factorial_recursive(10))
+    # print(factorial_iterative(10))

@@ -19,9 +19,17 @@ def linear_search_iterative(array, item):
 
 def linear_search_recursive(array, item, index=0):
     # TODO: implement linear search recursively here
-    pass
     # once implemented, change linear_search to call linear_search_recursive
     # to verify that your recursive implementation passes all tests
+    if(len(array) > index):
+        # print("INDEX", array[index])
+        if(array[index] == item):
+            return array[index]
+        else:
+            index += 1
+            return linear_search_recursive(array, item, index)
+    else:
+        return None
 
 
 def binary_search(array, item):
@@ -34,13 +42,46 @@ def binary_search(array, item):
 
 def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
-    pass
     # once implemented, change binary_search to call binary_search_iterative
     # to verify that your iterative implementation passes all tests
+    lower = 0
+    upper = len(array)
+    while lower < upper:
+        x = lower + (upper - lower) // 2
+        val = array[x]
+        if item == val:
+            return x
+        elif item > val:
+            if lower == x:
+                break
+            lower = x
+        elif item < val:
+            upper = x
 
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
-    pass
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
+     # Base case for exiting recusive function
+
+    if left is None and right is None:
+        left = 0
+        right = len(array) - 1
+
+    mid = (left + right) // 2
+
+    if array[mid] > item:
+
+        return binary_search_recursive(array, item, left, mid - 1)
+    elif array[mid] < item:
+
+        return binary_search_recursive(array, item, mid + 1, right)
+    else:
+        return mid
+
+
+list_of_nums = [1, 2, 3, 4, 5]
+item = 5
+print(binary_search_recursive(list_of_nums, item))
+print(binary_search_iterative(list_of_nums, item))
