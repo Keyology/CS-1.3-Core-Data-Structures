@@ -43,9 +43,20 @@ def is_palindrome_iterative(text):
 
 def is_palindrome_recursive(text, left=None, right=None):
     # TODO: implement the is_palindrome function recursively here
-    pass
     # once implemented, change is_palindrome to call is_palindrome_recursive
     # to verify that your iterative implementation passes all tests
+    text = clean_string(text)
+    if left is None and right is None:
+        left = 0
+        right = len(text)-1
+
+    if left < right:
+        if text[left] == text[right]:
+            return is_palindrome_recursive(text, left+1, right-1)
+        else:
+            return False
+    else:
+        return True
 
 
 def main():
@@ -63,5 +74,5 @@ def main():
 
 
 if __name__ == '__main__':
-    result = is_palindrome_iterative('ALULA')
+    result = is_palindrome_recursive('ALULA')
     print("RESULT", result)
