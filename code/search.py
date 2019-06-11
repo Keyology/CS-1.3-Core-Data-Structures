@@ -53,7 +53,7 @@ def binary_search_iterative(array, item):
         x = lower + (upper - lower) // 2
         val = array[x]
         if item == val:
-            return x
+            return array[x]
         elif item > val:
             if lower == x:
                 break
@@ -67,7 +67,7 @@ def binary_search_recursive(array, item, left=None, right=None):
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
      # Base case for exiting recusive function
-     """
+    """
         Recursive Binary search function -> O(logn) runtime
     """
 
@@ -80,14 +80,14 @@ def binary_search_recursive(array, item, left=None, right=None):
     if array[mid] > item:
 
         return binary_search_recursive(array, item, left, mid - 1)
-    elif array[mid] < item:
+    if array[mid] < item:
 
         return binary_search_recursive(array, item, mid + 1, right)
     else:
-        return mid
+        return array[mid]
 
 
-list_of_nums = [1, 2, 3, 4, 5]
-item = 5
+list_of_nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+item = 20
 print(binary_search_recursive(list_of_nums, item))
 print(binary_search_iterative(list_of_nums, item))
